@@ -66,10 +66,9 @@ describe("Login form validation tests", () => {
 
     users.forEach(user => {
         it(`UC-3 Test login for ${user.username}`, async () => {
-            await loginPage.setUsername(user.username);
-            await loginPage.setPassword(user.password);
-            await loginPage.submit();
-
+            
+            await loginPage.loginUser(user.username, user.password);
+           
             if (user.result === "success") {
                 const title = await loginPage.getTitleText();
                 await expect(title).toBe("Swag Labs");

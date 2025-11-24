@@ -44,6 +44,14 @@ class LoginPage extends BasePage {
         return await this.login.title.getText();
     }
 
+    async loginUser(username, password) {
+
+        await this.login.inputUsername.setValue(username);
+        await this.login.inputPassword.setValue(password);
+        await this.login.buttonLogin.click();
+    
+    }
+
 
 }
 
